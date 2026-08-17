@@ -16,9 +16,18 @@ Model and interface:
 - Interface: ChatGPT/Codex coding-agent session
 - Date: 2026-08-17
 - Unsupported parameters: temperature, frequency penalty, top-p, and min-p are
-  not directly adjustable in this interface. LM Studio local endpoint
-  `http://127.0.0.1:1234/v1/models` was checked and returned connection
-  refused, so local parameter sweeps could not be run.
+  not directly adjustable in this interface.
+
+Alternative routes checked:
+
+- LM Studio local endpoint `http://127.0.0.1:1234/v1/models`: connection
+  refused.
+- Ollama CLI: not installed.
+- LM Studio CLI: not installed.
+- `llm` CLI: not installed.
+- Common local model ports including `11434`, `1234`, `8000`, `8080`, `5000`,
+  `7860`, and `3000`: no model service listening.
+- Common hosted-model API-key environment variables: none available.
 
 ## Runs
 
@@ -41,6 +50,10 @@ Model and interface:
 ## Result
 
 The selected interface did not support generation-parameter changes, and the
-local LM Studio endpoint was unavailable. No parameter effects are estimated.
-The important finding is that unsupported settings must be recorded as
-unsupported instead of guessed.
+available local/hosted alternatives did not expose a runnable model from this
+environment. No parameter effects are estimated. The important finding is that
+unsupported settings must be recorded as unsupported instead of guessed.
+
+The runner now supports a hosted OpenAI-compatible API through `--base-url` and
+`--api-key-env`, so this table can be updated later if a real model endpoint is
+provided.

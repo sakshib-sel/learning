@@ -1,40 +1,85 @@
-# Sentinel Learning Programme
+# Sentinel Learning
 
-This repository contains the weekly work for the Sentinel learning programme.
+This repo contains my Week 1 work for the Sentinel incident-analysis learning
+programme.
 
-Sentinel is a fictional AI assistant that supports engineers during production
-incidents. It is a learning project only: it must not replace an incident
-commander and must not independently make or execute production decisions.
+Sentinel is a fictional AI assistant for production incidents. It can organize
+evidence and suggest investigation steps, but it must not replace the incident
+commander or take production action.
 
-## Repository Structure
+## Contents
 
-- `week-1/` - A convincing AI answer can still be unsafe.
-- `scripts/` - Small local utilities for running repeatable experiments.
-- `outputs/` - Generated model outputs and run logs. Preserve original model
-  responses here or in `week-1/responses/` without rewriting them.
+- `week-1/incidents/` - Incident briefs for INC-104, INC-107, and INC-109.
+- `week-1/prompts/` - Baseline, zero-shot, one-shot, few-shot, and JSON-output
+  prompts.
+- `week-1/responses/` - Preserved model responses.
+- `week-1/experiments/` - Prompt comparison and generation-parameter notes.
+- `week-1/notes/` - Pre-model analysis, claim classification, and reflection.
+- `week-1/submission.md` - Final Week 1 submission summary.
+- `scripts/run_experiment.py` - Small runner for OpenAI-compatible model APIs.
 
-## Week 1 Status
+## Week 1 Focus
 
-The Week 1 workflow, prompts, evaluation rubric, notes, incident brief, and
-local runner are set up. Run at least five baseline experiments and fill in the
-evidence tables to complete the model-evaluation portion.
+The main lesson is that a convincing model answer can still be unsafe. For
+INC-104, the deployment is a plausible hypothesis, but the brief also includes
+database latency, external payment-provider errors, and credential-history
+signals. The repo separates facts, assumptions, hypotheses, unsupported claims,
+and missing evidence.
 
-The Week 1 submission checklist is in `week-1/submission.md`.
+## Running Experiments
 
-## Local Model Setup
+### Local LM Studio
 
-LM Studio is recommended by the course. Start an OpenAI-compatible local server
-in LM Studio, then run:
+Start an OpenAI-compatible server in LM Studio, then run:
 
 ```bash
 python3 scripts/run_experiment.py \
   --incident week-1/incidents/INC-104.md \
-  --prompt week-1/prompts/baseline.md \
+  --prompt week-1/prompts/json-output/zero-shot-json.md \
   --model qwen2.5-7b-instruct-1m \
-  --output outputs/baseline.jsonl
+  --temperature 0.7 \
+  --runs 2 \
+  --output outputs/zero-shot-json.jsonl
 ```
 
-By default the runner calls `http://127.0.0.1:1234/v1/chat/completions`.
+Default base URL:
 
-For JSON-output prompt experiments, use the prompts in
-`week-1/prompts/json-output/`.
+```text
+http://127.0.0.1:1234/v1
+```
+
+### Hosted OpenAI-Compatible API
+
+Set an API key in your shell:
+
+```bash
+export OPENAI_API_KEY="your-key"
+```
+
+Then run:
+
+```bash
+python3 scripts/run_experiment.py \
+  --base-url https://api.openai.com/v1 \
+  --api-key-env OPENAI_API_KEY \
+  --incident week-1/incidents/INC-104.md \
+  --prompt week-1/prompts/json-output/zero-shot-json.md \
+  --model gpt-4.1-mini \
+  --temperature 0.7 \
+  --top-p 1 \
+  --frequency-penalty 0 \
+  --response-format json_object \
+  --runs 2 \
+  --output outputs/openai-zero-shot-json.jsonl
+```
+
+Change only one generation parameter at a time and record unsupported settings
+as `not supported`.
+
+## Submission
+
+Final Week 1 notes are in:
+
+```text
+week-1/submission.md
+```

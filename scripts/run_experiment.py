@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import time
 import urllib.error
 import urllib.request
@@ -28,6 +29,8 @@ def call_model(
     top_p: float | None,
     frequency_penalty: float | None,
     min_p: float | None,
+    api_key: str | None,
+    response_format: str | None,
     timeout: int,
 ) -> dict:
     body = {
@@ -44,10 +47,15 @@ def call_model(
         body["frequency_penalty"] = frequency_penalty
     if min_p is not None:
         body["min_p"] = min_p
+    if response_format is not None:
+        body["response_format"] = {"type": response_format}
+    headers = {"Content-Type": "application/json"}
+    if api_key:
+        headers["Authorization"] = f"Bearer {api_key}"
     request = urllib.request.Request(
         f"{base_url.rstrip('/')}/chat/completions",
         data=json.dumps(body).encode("utf-8"),
-        headers={"Content-Type": "application/json"},
+        headers=headers,
         method="POST",
     )
     started = time.perf_counter()
@@ -75,16 +83,26 @@ def main() -> int:
     parser.add_argument("--output", required=True, type=Path)
     parser.add_argument("--model", required=True)
     parser.add_argument("--base-url", default=DEFAULT_BASE_URL)
+    parser.add_argument(
+        "--api-key-env",
+        help="Name of env var containing an API key for hosted OpenAI-compatible APIs.",
+    )
     parser.add_argument("--temperature", default=0.7, type=float)
     parser.add_argument("--top-p", type=float)
     parser.add_argument("--frequency-penalty", type=float)
     parser.add_argument("--min-p", type=float)
+    parser.add_argument(
+        "--response-format",
+        choices=["json_object"],
+        help="Request JSON mode when supported by the selected API.",
+    )
     parser.add_argument("--runs", default=1, type=int)
     parser.add_argument("--timeout", default=120, type=int)
     args = parser.parse_args()
 
     incident = read_text(args.incident)
     prompt = read_text(args.prompt)
+    api_key = os.environ.get(args.api_key_env) if args.api_key_env else None
     system_prompt = (
         "You are Sentinel, a learning incident-analysis assistant. "
         "Separate supplied facts from assumptions and hypotheses. "
@@ -105,6 +123,8 @@ def main() -> int:
                 top_p=args.top_p,
                 frequency_penalty=args.frequency_penalty,
                 min_p=args.min_p,
+                api_key=api_key,
+                response_format=args.response_format,
                 timeout=args.timeout,
             )
             record = {
@@ -114,6 +134,8 @@ def main() -> int:
                 "top_p": args.top_p,
                 "frequency_penalty": args.frequency_penalty,
                 "min_p": args.min_p,
+                "response_format": args.response_format,
+                "api_key_env": args.api_key_env,
                 "base_url": args.base_url,
                 "incident_path": str(args.incident),
                 "prompt_path": str(args.prompt),

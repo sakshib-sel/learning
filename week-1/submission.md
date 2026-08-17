@@ -39,8 +39,10 @@ Required:
 - Record unsupported options as `not supported`.
 
 Result: the selected Codex interface does not expose temperature, frequency
-penalty, top-p, or min-p controls. The local LM Studio endpoint was unavailable,
-so no parameter effects were estimated.
+penalty, top-p, or min-p controls. I also checked for LM Studio, Ollama, common
+local model ports, and common hosted-model API-key environment variables. No
+runnable controllable model endpoint was available, so no parameter effects were
+estimated.
 
 ## Short Reflection
 
@@ -51,7 +53,7 @@ Answer:
 - What changed across the prompt approaches? Structure and uncertainty handling
   improved from zero-shot to one-shot to few-shot.
 - What changed when generation parameters were adjusted? No parameter changes
-  were possible in the selected interface; unsupported settings were recorded.
+  were possible in the available interfaces; unsupported settings were recorded.
 - Did greater consistency make the response more correct? No. Consistency can
   repeat an unsupported causal claim.
 - Which claims were facts, hypotheses, assumptions, or unsupported? See
