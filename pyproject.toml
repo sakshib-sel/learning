@@ -1,0 +1,7 @@
+[project]
+name = "sentinel-learning"
+version = "0.1.0"
+description = "Hands-on Sentinel incident-analysis learning programme"
+requires-python = ">=3.10"
+dependencies = []
+
