@@ -25,6 +25,9 @@ def call_model(
     system_prompt: str,
     user_prompt: str,
     temperature: float,
+    top_p: float | None,
+    frequency_penalty: float | None,
+    min_p: float | None,
     timeout: int,
 ) -> dict:
     body = {
@@ -35,6 +38,12 @@ def call_model(
             {"role": "user", "content": user_prompt},
         ],
     }
+    if top_p is not None:
+        body["top_p"] = top_p
+    if frequency_penalty is not None:
+        body["frequency_penalty"] = frequency_penalty
+    if min_p is not None:
+        body["min_p"] = min_p
     request = urllib.request.Request(
         f"{base_url.rstrip('/')}/chat/completions",
         data=json.dumps(body).encode("utf-8"),
@@ -67,6 +76,9 @@ def main() -> int:
     parser.add_argument("--model", required=True)
     parser.add_argument("--base-url", default=DEFAULT_BASE_URL)
     parser.add_argument("--temperature", default=0.7, type=float)
+    parser.add_argument("--top-p", type=float)
+    parser.add_argument("--frequency-penalty", type=float)
+    parser.add_argument("--min-p", type=float)
     parser.add_argument("--runs", default=1, type=int)
     parser.add_argument("--timeout", default=120, type=int)
     args = parser.parse_args()
@@ -90,12 +102,18 @@ def main() -> int:
                 system_prompt=system_prompt,
                 user_prompt=user_prompt,
                 temperature=args.temperature,
+                top_p=args.top_p,
+                frequency_penalty=args.frequency_penalty,
+                min_p=args.min_p,
                 timeout=args.timeout,
             )
             record = {
                 "run_index": run_index,
                 "model": args.model,
                 "temperature": args.temperature,
+                "top_p": args.top_p,
+                "frequency_penalty": args.frequency_penalty,
+                "min_p": args.min_p,
                 "base_url": args.base_url,
                 "incident_path": str(args.incident),
                 "prompt_path": str(args.prompt),
@@ -109,4 +127,3 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
-

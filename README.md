@@ -10,14 +10,16 @@ commander and must not independently make or execute production decisions.
 
 - `week-1/` - A convincing AI answer can still be unsafe.
 - `scripts/` - Small local utilities for running repeatable experiments.
-- `outputs/` - Generated model outputs and run logs. Raw outputs are ignored by
-  Git by default.
+- `outputs/` - Generated model outputs and run logs. Preserve original model
+  responses here or in `week-1/responses/` without rewriting them.
 
 ## Week 1 Status
 
 The Week 1 workflow, prompts, evaluation rubric, notes, incident brief, and
 local runner are set up. Run at least five baseline experiments and fill in the
 evidence tables to complete the model-evaluation portion.
+
+The Week 1 submission checklist is in `week-1/submission.md`.
 
 ## Local Model Setup
 
@@ -33,3 +35,6 @@ python3 scripts/run_experiment.py \
 ```
 
 By default the runner calls `http://127.0.0.1:1234/v1/chat/completions`.
+
+For JSON-output prompt experiments, use the prompts in
+`week-1/prompts/json-output/`.

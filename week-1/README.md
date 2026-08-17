@@ -14,10 +14,14 @@ using evidence and uncertainty.
    `experiments/baseline-runs.md`.
 4. Run the zero-shot, one-shot, and few-shot prompts without changing the
    incident, model, or generation settings.
-5. Compare prompt variants in `experiments/prompt-comparison.md`.
-6. Capture facts, assumptions, hypotheses, missing evidence, and unsupported
+5. Try JSON output using the prompts in `prompts/json-output/`.
+6. Compare prompt variants in `experiments/prompt-comparison.md`.
+7. Run generation-parameter experiments in
+   `experiments/generation-parameters.md`.
+8. Capture facts, assumptions, hypotheses, missing evidence, and unsupported
    claims in `notes/facts-assumptions-hypotheses.md`.
-7. Finish `notes/reflection.md`.
+9. Finish `notes/reflection.md`.
+10. Complete `submission.md`.
 
 ## Completion Gate
 
@@ -28,3 +32,5 @@ and the final reflection explains:
 - why structure does not guarantee factuality
 - what evidence is missing before recommending action
 - what Sentinel can and cannot safely conclude
+
+Preserve original model responses in `responses/` without rewriting them.
