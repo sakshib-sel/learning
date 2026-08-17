@@ -12,20 +12,23 @@ Prompt:
 
 Model and interface:
 
-- Model:
-- Interface:
-- Date:
-- Unsupported parameters:
+- Model: Codex session model
+- Interface: ChatGPT/Codex coding-agent session
+- Date: 2026-08-17
+- Unsupported parameters: temperature, frequency penalty, top-p, and min-p are
+  not directly adjustable in this interface. LM Studio local endpoint
+  `http://127.0.0.1:1234/v1/models` was checked and returned connection
+  refused, so local parameter sweeps could not be run.
 
 ## Runs
 
 | Parameter changed | Value | Run count | Original response location | Brief output change |
 | --- | --- | ---: | --- | --- |
-| Baseline |  |  |  |  |
-| Temperature |  |  |  |  |
-| Frequency penalty |  |  |  |  |
-| Top-p |  |  |  |  |
-| Min-p | Not supported / value used |  |  |  |
+| Baseline | Interface default | 1 | `../responses/zero-shot-json-response.md` | Produced valid-looking structured JSON with multiple hypotheses and explicit uncertainty. |
+| Temperature | Not supported | 0 | N/A | Skipped; this interface does not expose temperature controls. |
+| Frequency penalty | Not supported | 0 | N/A | Skipped; this interface does not expose frequency-penalty controls. |
+| Top-p | Not supported | 0 | N/A | Skipped; this interface does not expose top-p controls. |
+| Min-p | Not supported | 0 | N/A | Skipped; this interface does not expose min-p controls. |
 
 ## Notes
 
@@ -35,3 +38,9 @@ Model and interface:
 - Preserve original responses in `../responses/` or committed JSONL files under
   `../../outputs/`.
 
+## Result
+
+The selected interface did not support generation-parameter changes, and the
+local LM Studio endpoint was unavailable. No parameter effects are estimated.
+The important finding is that unsupported settings must be recorded as
+unsupported instead of guessed.

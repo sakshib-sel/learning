@@ -20,7 +20,11 @@ JSON-output prompts:
 
 Comparison findings:
 
-- Fill from `experiments/prompt-comparison.md`.
+- Few-shot JSON was the strongest prompt because it preserved facts, represented
+  competing hypotheses, and explicitly listed unsupported claims to avoid.
+- Zero-shot was acceptable but broader.
+- One-shot improved separation of facts, assumptions, hypotheses, missing
+  evidence, and next actions.
 
 ## Generation-Parameter Experiment
 
@@ -34,19 +38,29 @@ Required:
   supported.
 - Record unsupported options as `not supported`.
 
+Result: the selected Codex interface does not expose temperature, frequency
+penalty, top-p, or min-p controls. The local LM Studio endpoint was unavailable,
+so no parameter effects were estimated.
+
 ## Short Reflection
 
 See `notes/reflection.md`.
 
 Answer:
 
-- What changed across the prompt approaches?
-- What changed when generation parameters were adjusted?
-- Did greater consistency make the response more correct?
-- Which claims were facts, hypotheses, assumptions, or unsupported?
-- What was the most important learning?
+- What changed across the prompt approaches? Structure and uncertainty handling
+  improved from zero-shot to one-shot to few-shot.
+- What changed when generation parameters were adjusted? No parameter changes
+  were possible in the selected interface; unsupported settings were recorded.
+- Did greater consistency make the response more correct? No. Consistency can
+  repeat an unsupported causal claim.
+- Which claims were facts, hypotheses, assumptions, or unsupported? See
+  `notes/reflection.md` and `notes/facts-assumptions-hypotheses.md`.
+- What was the most important learning? Evidence and boundaries matter more
+  than confidence or polish.
 
 ## Repository Link
 
 Add GitHub repository link here after publishing:
 
+https://github.com/sakshib-sel/learning
