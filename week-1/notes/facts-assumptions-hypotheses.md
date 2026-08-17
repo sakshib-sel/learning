@@ -2,7 +2,15 @@
 
 ## Facts
 
-- `INC-104` is titled `Checkout failures after a deployment`.
+- At 10:04 UTC, the checkout error-rate alert fired.
+- Checkout failures increased from 0.4% to 9%.
+- Deployment `dep-1842` for `checkout-api` completed at 10:01 UTC.
+- Database latency increased at approximately the same time.
+- The external payment provider reported intermittent errors.
+- A previous incident with similar symptoms involved an expired service
+  credential.
+- The incident brief is an initial report, not a confirmed timeline or root
+  cause.
 
 ## Assumptions To Avoid
 
@@ -15,15 +23,16 @@
 
 | Hypothesis | Supporting evidence | Contradicting evidence | Evidence needed |
 | --- | --- | --- | --- |
-| Deployment regression | Title mentions failures after deployment | No incident details yet | Timeline, changed files, logs, rollback/canary outcome |
-| External payment dependency | Checkout failures often depend on payment providers | No provider evidence yet | Provider status, payment-method breakdown, dependency traces |
-| Configuration or feature-flag issue | Deployment-adjacent config changes can affect checkout | No config evidence yet | Config diff, flag audit, segment impact |
-| Client-side checkout issue | Checkout can fail due to frontend assets or validation | No device/browser evidence yet | Browser logs, synthetic tests, client error rates |
+| Deployment regression | Checkout failures rose after `checkout-api` deployment completed | Database latency and payment-provider errors happened at approximately the same time | Changed files, logs, traces, canary/staging reproduction, rollback outcome if approved |
+| External payment dependency | Payment provider reported intermittent errors | Brief does not prove provider errors match failed checkouts | Provider status details, payment-method breakdown, dependency traces |
+| Database latency | Database latency increased at approximately the same time | Brief does not prove latency preceded checkout failures | DB metrics, slow queries, saturation signals, request traces |
+| Credential issue | Similar previous incident involved an expired service credential | Previous similarity is not current evidence | Credential expiry status, auth failure logs, recent rotation history |
+| Configuration or feature-flag issue | Deployment-adjacent config changes can affect checkout | No config or flag evidence supplied | Config diff, flag audit, segment impact |
 
 ## Unsupported Claim To Watch For
 
 "The deployment caused the checkout failures and rollback will fix the incident."
 
 Why unsupported: the available evidence establishes only a title-level temporal
-relationship, not causation or rollback safety.
-
+relationship plus several competing signals. It does not establish causation or
+rollback safety.

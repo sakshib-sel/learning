@@ -15,13 +15,9 @@ commander and must not independently make or execute production decisions.
 
 ## Week 1 Status
 
-The Week 1 workflow, prompts, evaluation rubric, notes, and local runner are set
-up. The remaining required input is the full text of `INC-104 -- Checkout
-failures after a deployment`; the course brief links to a Notion page that is
-not readable from this environment.
-
-Once the incident text is pasted into `week-1/incidents/INC-104.md`, run at
-least five baseline experiments and fill in the evidence tables.
+The Week 1 workflow, prompts, evaluation rubric, notes, incident brief, and
+local runner are set up. Run at least five baseline experiments and fill in the
+evidence tables to complete the model-evaluation portion.
 
 ## Local Model Setup
 

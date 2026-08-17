@@ -8,8 +8,8 @@ using evidence and uncertainty.
 
 ## Activities
 
-1. Paste the full `INC-104` incident into `incidents/INC-104.md`.
-2. Complete `notes/pre-model-analysis.md` before using a model.
+1. Review the supplied `INC-104` incident in `incidents/INC-104.md`.
+2. Review or update `notes/pre-model-analysis.md` before using a model.
 3. Run the baseline prompt at least five times and record results in
    `experiments/baseline-runs.md`.
 4. Run the zero-shot, one-shot, and few-shot prompts without changing the
@@ -28,4 +28,3 @@ and the final reflection explains:
 - why structure does not guarantee factuality
 - what evidence is missing before recommending action
 - what Sentinel can and cannot safely conclude
-
