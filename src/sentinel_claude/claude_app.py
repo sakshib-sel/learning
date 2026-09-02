@@ -147,8 +147,16 @@ def analyze_incident(
     except APIConnectionError as exc:
         return _failure(FailureCategory.INTEGRATION, "connection_error", str(exc))
     except APIStatusError as exc:
+        message = str(exc)
+        if "credit balance is too low" in message.lower():
+            return _failure(
+                FailureCategory.CONFIGURATION,
+                "insufficient_credits",
+                message,
+                {"status_code": exc.status_code},
+            )
         code = "context_limit" if getattr(exc, "status_code", None) == 400 else "api_status_error"
-        return _failure(FailureCategory.INTEGRATION, code, str(exc), {"status_code": exc.status_code})
+        return _failure(FailureCategory.INTEGRATION, code, message, {"status_code": exc.status_code})
     except TimeoutError as exc:
         return _failure(FailureCategory.RUNTIME, "timeout", str(exc))
 
@@ -260,4 +268,3 @@ def _failure(
     details: dict[str, Any] | None = None,
 ) -> dict[str, Any]:
     return {"status": "failure", "failure": SentinelFailure(category, code, message, details).to_dict()}
-

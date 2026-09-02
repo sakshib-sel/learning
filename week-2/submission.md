@@ -27,11 +27,12 @@
 
 ## Live API Status
 
-`ANTHROPIC_API_KEY` was not available in this environment, so live Claude calls
-were not executed here. The application handles that as a typed configuration
-failure and is ready to run once the key is set.
+`ANTHROPIC_API_KEY` was added locally in `.env` and authenticated successfully
+against the Anthropic models endpoint. A live Claude generation request failed
+because the Anthropic account has insufficient credits. The application handles
+this as a typed configuration failure and is ready to run once credits are
+available.
 
 ## Repository
 
 https://github.com/sakshib-sel/learning
-
