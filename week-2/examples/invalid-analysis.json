@@ -1,0 +1,5 @@
+{
+  "facts": "Checkout broke because the deployment was bad.",
+  "root_cause": "dep-1842"
+}
+

@@ -16,6 +16,7 @@ commander or take production action.
 - `week-1/experiments/` - Prompt comparison and generation-parameter notes.
 - `week-1/notes/` - Pre-model analysis, claim classification, and reflection.
 - `week-1/submission.md` - Final Week 1 submission summary.
+- `week-2/` - Claude-powered Sentinel application and Week 2 notes.
 - `scripts/run_experiment.py` - Small runner for OpenAI-compatible model APIs.
 
 ## Week 1 Focus
@@ -78,8 +79,20 @@ as `not supported`.
 
 ## Submission
 
-Final Week 1 notes are in:
+Final notes are in:
 
 ```text
 week-1/submission.md
+week-2/submission.md
+```
+
+## Claude App Quick Start
+
+```bash
+python3 -m pip install -e .
+export ANTHROPIC_API_KEY="your-key"
+sentinel-claude analyze \
+  --incident week-1/incidents/INC-104.md \
+  --model claude-sonnet-5 \
+  --output outputs/week-2/non-streaming.json
 ```

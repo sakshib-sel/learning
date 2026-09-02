@@ -3,5 +3,9 @@ name = "sentinel-learning"
 version = "0.1.0"
 description = "Hands-on Sentinel incident-analysis learning programme"
 requires-python = ">=3.10"
-dependencies = []
+dependencies = [
+  "anthropic>=0.69.0",
+]
 
+[project.scripts]
+sentinel-claude = "sentinel_claude.cli:main"

@@ -1,0 +1,31 @@
+{
+  "facts": [
+    "At 10:04 UTC, the checkout error-rate alert fired.",
+    "Checkout failures increased from 0.4% to 9%."
+  ],
+  "assumptions": [
+    "The deployment may be related because it completed shortly before the alert."
+  ],
+  "hypotheses": [
+    {
+      "claim": "dep-1842 introduced a checkout-api regression",
+      "supporting_evidence": [
+        "Deployment dep-1842 completed at 10:01 UTC."
+      ],
+      "contradicting_evidence": [
+        "Database latency and payment-provider errors were also reported."
+      ],
+      "evidence_needed": [
+        "Failed checkout traces showing the failing span."
+      ]
+    }
+  ],
+  "missing_information": [
+    "Exact first failure time."
+  ],
+  "reversible_next_actions": [
+    "Inspect failed checkout traces before recommending rollback."
+  ],
+  "uncertainty": "The root cause is not confirmed from the initial brief."
+}
+

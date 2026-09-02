@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python3 -m unittest discover -s tests)",
+      "Bash(sentinel-claude validate-json week-2/examples/valid-analysis.json)",
+      "Bash(sentinel-claude analyze --incident week-1/incidents/INC-104.md --model claude-sonnet-5)"
+    ],
+    "deny": [
+      "Bash(rm -rf *)",
+      "Bash(git reset --hard *)"
+    ]
+  }
+}
+
