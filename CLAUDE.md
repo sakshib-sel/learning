@@ -14,6 +14,8 @@ approve or execute production actions.
 - `week-1/` contains prompt experiments, preserved responses, and reflection.
 - `week-2/` contains the Claude API application exercises and notes.
 - `week-3/` contains mocked tool-use workflows and safety exercises.
+- `week-4/` contains repeatable evaluation, optimization, cache, batch, and
+  context-engineering exercises.
 - `src/sentinel_claude/` contains the Week 2 Python application.
 - `schemas/` contains structured-output contracts.
 - `outputs/` may contain generated run artifacts.
@@ -25,6 +27,7 @@ python3 -m pip install -e .
 python3 -m unittest discover -s tests
 sentinel-claude validate-json week-2/examples/valid-analysis.json
 sentinel-tool-loop --incident week-1/incidents/INC-104.md
+sentinel-evaluate --configuration optimized
 ```
 
 Run a Claude request only when `ANTHROPIC_API_KEY` is configured:
@@ -50,6 +53,8 @@ sentinel-claude analyze --incident week-1/incidents/INC-104.md --model claude-so
   controls execution.
 - Week 3 tools are read-only mocked evidence tools. Do not add production write
   tools.
+- Week 4 optimization must not silently change Sentinel behavior. Use fixed
+  evaluation cases before accepting a model, prompt, context, or cache change.
 
 ## Definition Of Done
 

@@ -1,0 +1,119 @@
+{
+  "configuration": "optimized",
+  "summary": {
+    "quality_threshold": 0.8,
+    "cases": 6,
+    "passed": 6,
+    "average_quality_score": 1.0,
+    "average_latency_seconds": 0.95,
+    "input_tokens": 8275,
+    "output_tokens": 3240,
+    "cache_read_tokens": 4549,
+    "estimated_cost_usd": 0.061143,
+    "failures": []
+  },
+  "results": [
+    {
+      "case_id": "INC-104",
+      "configuration": "optimized",
+      "passed": true,
+      "quality_score": 1.0,
+      "valid_json": true,
+      "tool_accuracy": 1.0,
+      "latency_seconds": 0.95,
+      "input_tokens": 1224,
+      "output_tokens": 540,
+      "cache_read_tokens": 673,
+      "estimated_cost_usd": 0.009955,
+      "first_divergence": null,
+      "notes": [
+        "typed compaction preserves evidence IDs, contradictions, negation, and uncertainty"
+      ]
+    },
+    {
+      "case_id": "INC-107",
+      "configuration": "optimized",
+      "passed": true,
+      "quality_score": 1.0,
+      "valid_json": true,
+      "tool_accuracy": 1.0,
+      "latency_seconds": 0.95,
+      "input_tokens": 1122,
+      "output_tokens": 540,
+      "cache_read_tokens": 617,
+      "estimated_cost_usd": 0.0098,
+      "first_divergence": null,
+      "notes": [
+        "typed compaction preserves evidence IDs, contradictions, negation, and uncertainty"
+      ]
+    },
+    {
+      "case_id": "INC-109",
+      "configuration": "optimized",
+      "passed": true,
+      "quality_score": 1.0,
+      "valid_json": true,
+      "tool_accuracy": 1.0,
+      "latency_seconds": 0.95,
+      "input_tokens": 1020,
+      "output_tokens": 540,
+      "cache_read_tokens": 561,
+      "estimated_cost_usd": 0.009645,
+      "first_divergence": null,
+      "notes": [
+        "typed compaction preserves evidence IDs, contradictions, negation, and uncertainty"
+      ]
+    },
+    {
+      "case_id": "INC-201",
+      "configuration": "optimized",
+      "passed": true,
+      "quality_score": 1.0,
+      "valid_json": true,
+      "tool_accuracy": 1.0,
+      "latency_seconds": 0.95,
+      "input_tokens": 1169,
+      "output_tokens": 540,
+      "cache_read_tokens": 642,
+      "estimated_cost_usd": 0.009874,
+      "first_divergence": null,
+      "notes": [
+        "typed compaction preserves evidence IDs, contradictions, negation, and uncertainty"
+      ]
+    },
+    {
+      "case_id": "INC-202",
+      "configuration": "optimized",
+      "passed": true,
+      "quality_score": 1.0,
+      "valid_json": true,
+      "tool_accuracy": 1.0,
+      "latency_seconds": 0.95,
+      "input_tokens": 2856,
+      "output_tokens": 540,
+      "cache_read_tokens": 1570,
+      "estimated_cost_usd": 0.012429,
+      "first_divergence": null,
+      "notes": [
+        "typed compaction preserves evidence IDs, contradictions, negation, and uncertainty"
+      ]
+    },
+    {
+      "case_id": "INC-203",
+      "configuration": "optimized",
+      "passed": true,
+      "quality_score": 1.0,
+      "valid_json": true,
+      "tool_accuracy": 1.0,
+      "latency_seconds": 0.95,
+      "input_tokens": 884,
+      "output_tokens": 540,
+      "cache_read_tokens": 486,
+      "estimated_cost_usd": 0.00944,
+      "first_divergence": null,
+      "notes": [
+        "typed compaction preserves evidence IDs, contradictions, negation, and uncertainty"
+      ]
+    }
+  ]
+}

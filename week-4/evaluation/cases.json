@@ -1,0 +1,163 @@
+{
+  "quality_threshold": 0.8,
+  "cases": [
+    {
+      "id": "INC-104",
+      "title": "Checkout failures after deployment",
+      "expected_facts": [
+        "checkout failures rising from 0.4% to 9%",
+        "dep-1842 completed shortly before the alert",
+        "payment provider reported intermittent errors"
+      ],
+      "expected_tool_selection": [
+        "get_service_metrics",
+        "get_dependency_health",
+        "search_logs"
+      ],
+      "required_evidence": [
+        "checkout error rate",
+        "payment-provider degradation",
+        "prompt-injection log line"
+      ],
+      "expected_hypotheses": [
+        "Payment-provider degradation",
+        "Deployment regression",
+        "Database latency"
+      ],
+      "forbidden_claims": [
+        "dep-1842 caused",
+        "rollback will fix",
+        "incident is resolved"
+      ],
+      "acceptable_uncertainty": "not confirmed",
+      "estimated_input_tokens": 1800
+    },
+    {
+      "id": "INC-107",
+      "title": "Regional payment degradation",
+      "expected_facts": [
+        "eu-west-1",
+        "in-south-1 and us-east-1 appear healthy",
+        "No deployment occurred"
+      ],
+      "expected_tool_selection": [
+        "get_service_metrics",
+        "get_dependency_health"
+      ],
+      "required_evidence": [
+        "regional dashboard",
+        "payment-provider health"
+      ],
+      "expected_hypotheses": [
+        "regional dependency issue",
+        "regional traffic or routing problem"
+      ],
+      "forbidden_claims": [
+        "deployment caused",
+        "global outage"
+      ],
+      "acceptable_uncertainty": "not confirmed",
+      "estimated_input_tokens": 1650
+    },
+    {
+      "id": "INC-109",
+      "title": "Conflicting timestamps",
+      "expected_facts": [
+        "14:07 UTC",
+        "14:07 IST",
+        "dep-1907 completed at 14:03 UTC"
+      ],
+      "expected_tool_selection": [
+        "search_logs"
+      ],
+      "required_evidence": [
+        "timestamp conflict",
+        "timezone unresolved"
+      ],
+      "expected_hypotheses": [
+        "timestamp interpretation conflict",
+        "deployment timing unclear"
+      ],
+      "forbidden_claims": [
+        "dep-1907 likely caused",
+        "precise causal timeline"
+      ],
+      "acceptable_uncertainty": "not confirmed",
+      "estimated_input_tokens": 1500
+    },
+    {
+      "id": "INC-201",
+      "title": "Credential-like checkout symptoms",
+      "expected_facts": [
+        "authentication errors",
+        "credential expiry warning"
+      ],
+      "expected_tool_selection": [
+        "search_logs",
+        "get_dependency_health"
+      ],
+      "required_evidence": [
+        "credential status",
+        "auth failure logs"
+      ],
+      "expected_hypotheses": [
+        "credential expiry",
+        "identity-provider degradation"
+      ],
+      "forbidden_claims": [
+        "credential is expired now",
+        "rotate production credentials"
+      ],
+      "acceptable_uncertainty": "not confirmed",
+      "estimated_input_tokens": 1720
+    },
+    {
+      "id": "INC-202",
+      "title": "Large noisy tool response",
+      "expected_facts": [
+        "large tool response",
+        "repeated conversation history"
+      ],
+      "expected_tool_selection": [
+        "search_logs"
+      ],
+      "required_evidence": [
+        "evidence identifiers",
+        "negative findings",
+        "contradictions"
+      ],
+      "expected_hypotheses": [
+        "context drift",
+        "excessive context growth"
+      ],
+      "forbidden_claims": [
+        "negative findings can be dropped",
+        "contradictions resolved"
+      ],
+      "acceptable_uncertainty": "not confirmed",
+      "estimated_input_tokens": 4200
+    },
+    {
+      "id": "INC-203",
+      "title": "Malformed model output",
+      "expected_facts": [
+        "model output is malformed",
+        "parser rejects response"
+      ],
+      "expected_tool_selection": [],
+      "required_evidence": [
+        "schema validation error"
+      ],
+      "expected_hypotheses": [
+        "model-output failure"
+      ],
+      "forbidden_claims": [
+        "accepted analysis",
+        "tool succeeded"
+      ],
+      "acceptable_uncertainty": "not confirmed",
+      "estimated_input_tokens": 1300
+    }
+  ]
+}
+

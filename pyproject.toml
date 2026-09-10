@@ -16,3 +16,6 @@ agent = [
 sentinel-claude = "sentinel_claude.cli:main"
 sentinel-tool-loop = "sentinel_claude.tool_loop:main"
 sentinel-agent-sdk-demo = "sentinel_claude.agent_sdk_sim:main"
+sentinel-evaluate = "sentinel_claude.evaluation:main"
+sentinel-batch-sim = "sentinel_claude.batch_sim:main"
+sentinel-cache-sim = "sentinel_claude.cache_sim:main"

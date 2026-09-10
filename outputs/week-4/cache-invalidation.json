@@ -1,0 +1,26 @@
+{
+  "mode": "deterministic_simulation",
+  "change": "system_prompt",
+  "cache_hit": false,
+  "requests": [
+    {
+      "request": "stable prefix + INC-104",
+      "cache_key": "0218c9660b00",
+      "cache_creation_tokens": 1800,
+      "cache_read_tokens": 0,
+      "uncached_input_tokens": 650,
+      "latency_seconds": 1.4,
+      "estimated_cost_usd": 0.00735
+    },
+    {
+      "request": "stable prefix + INC-107",
+      "cache_key": "ad8a08a4323f",
+      "cache_creation_tokens": 1800,
+      "cache_read_tokens": 0,
+      "uncached_input_tokens": 610,
+      "latency_seconds": 1.45,
+      "estimated_cost_usd": 0.00723
+    }
+  ],
+  "explanation": "Prompt caching reuses a stable prefix; changing content before the checkpoint invalidates the cache."
+}

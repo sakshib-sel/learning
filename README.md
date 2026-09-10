@@ -18,6 +18,7 @@ commander or take production action.
 - `week-1/submission.md` - Final Week 1 submission summary.
 - `week-2/` - Claude-powered Sentinel application and Week 2 notes.
 - `week-3/` - Mocked tool-use workflow, safety controls, and architecture notes.
+- `week-4/` - Evaluation, optimization, caching, batching, and context notes.
 - `scripts/run_experiment.py` - Small runner for OpenAI-compatible model APIs.
 
 ## Week 1 Focus
@@ -86,6 +87,7 @@ Final notes are in:
 week-1/submission.md
 week-2/submission.md
 week-3/submission.md
+week-4/submission.md
 ```
 
 ## Claude App Quick Start
@@ -107,4 +109,13 @@ Week 3 can run without production systems:
 sentinel-tool-loop \
   --incident week-1/incidents/INC-104.md \
   --output outputs/week-3/tool-loop.json
+```
+
+## Evaluation Simulator
+
+Week 4 can run deterministically without API credits:
+
+```bash
+sentinel-evaluate --configuration optimized \
+  --output outputs/week-4/optimized-eval.json
 ```

@@ -1,0 +1,127 @@
+{
+  "configuration": "baseline",
+  "summary": {
+    "quality_threshold": 0.8,
+    "cases": 6,
+    "passed": 5,
+    "average_quality_score": 0.9,
+    "average_latency_seconds": 1.358,
+    "input_tokens": 12170,
+    "output_tokens": 3920,
+    "cache_read_tokens": 0,
+    "estimated_cost_usd": 0.09531,
+    "failures": [
+      {
+        "case_id": "INC-109",
+        "configuration": "baseline",
+        "passed": false,
+        "quality_score": 0.43,
+        "valid_json": true,
+        "tool_accuracy": 1.0,
+        "latency_seconds": 1.4,
+        "input_tokens": 1500,
+        "output_tokens": 620,
+        "cache_read_tokens": 0,
+        "estimated_cost_usd": 0.0138,
+        "first_divergence": "model_output",
+        "notes": [
+          "first divergence: model_output"
+        ]
+      }
+    ]
+  },
+  "results": [
+    {
+      "case_id": "INC-104",
+      "configuration": "baseline",
+      "passed": true,
+      "quality_score": 1.0,
+      "valid_json": true,
+      "tool_accuracy": 1.0,
+      "latency_seconds": 1.35,
+      "input_tokens": 1800,
+      "output_tokens": 660,
+      "cache_read_tokens": 0,
+      "estimated_cost_usd": 0.0153,
+      "first_divergence": null,
+      "notes": []
+    },
+    {
+      "case_id": "INC-107",
+      "configuration": "baseline",
+      "passed": true,
+      "quality_score": 1.0,
+      "valid_json": true,
+      "tool_accuracy": 1.0,
+      "latency_seconds": 1.35,
+      "input_tokens": 1650,
+      "output_tokens": 660,
+      "cache_read_tokens": 0,
+      "estimated_cost_usd": 0.01485,
+      "first_divergence": null,
+      "notes": []
+    },
+    {
+      "case_id": "INC-109",
+      "configuration": "baseline",
+      "passed": false,
+      "quality_score": 0.43,
+      "valid_json": true,
+      "tool_accuracy": 1.0,
+      "latency_seconds": 1.4,
+      "input_tokens": 1500,
+      "output_tokens": 620,
+      "cache_read_tokens": 0,
+      "estimated_cost_usd": 0.0138,
+      "first_divergence": "model_output",
+      "notes": [
+        "first divergence: model_output"
+      ]
+    },
+    {
+      "case_id": "INC-201",
+      "configuration": "baseline",
+      "passed": true,
+      "quality_score": 1.0,
+      "valid_json": true,
+      "tool_accuracy": 1.0,
+      "latency_seconds": 1.35,
+      "input_tokens": 1720,
+      "output_tokens": 660,
+      "cache_read_tokens": 0,
+      "estimated_cost_usd": 0.01506,
+      "first_divergence": null,
+      "notes": []
+    },
+    {
+      "case_id": "INC-202",
+      "configuration": "baseline",
+      "passed": true,
+      "quality_score": 1.0,
+      "valid_json": true,
+      "tool_accuracy": 1.0,
+      "latency_seconds": 1.35,
+      "input_tokens": 4200,
+      "output_tokens": 660,
+      "cache_read_tokens": 0,
+      "estimated_cost_usd": 0.0225,
+      "first_divergence": null,
+      "notes": []
+    },
+    {
+      "case_id": "INC-203",
+      "configuration": "baseline",
+      "passed": true,
+      "quality_score": 1.0,
+      "valid_json": true,
+      "tool_accuracy": 1.0,
+      "latency_seconds": 1.35,
+      "input_tokens": 1300,
+      "output_tokens": 660,
+      "cache_read_tokens": 0,
+      "estimated_cost_usd": 0.0138,
+      "first_divergence": null,
+      "notes": []
+    }
+  ]
+}
