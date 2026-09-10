@@ -7,5 +7,12 @@ dependencies = [
   "anthropic>=0.69.0",
 ]
 
+[project.optional-dependencies]
+agent = [
+  "claude-agent-sdk>=0.1.60",
+]
+
 [project.scripts]
 sentinel-claude = "sentinel_claude.cli:main"
+sentinel-tool-loop = "sentinel_claude.tool_loop:main"
+sentinel-agent-sdk-demo = "sentinel_claude.agent_sdk_sim:main"

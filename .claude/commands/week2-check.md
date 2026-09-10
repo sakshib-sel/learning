@@ -9,4 +9,3 @@ sentinel-claude validate-json week-2/examples/valid-analysis.json
 
 Then summarize whether the app can parse valid output, reject invalid output,
 and reject interrupted streams.
-

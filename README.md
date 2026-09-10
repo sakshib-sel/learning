@@ -17,6 +17,7 @@ commander or take production action.
 - `week-1/notes/` - Pre-model analysis, claim classification, and reflection.
 - `week-1/submission.md` - Final Week 1 submission summary.
 - `week-2/` - Claude-powered Sentinel application and Week 2 notes.
+- `week-3/` - Mocked tool-use workflow, safety controls, and architecture notes.
 - `scripts/run_experiment.py` - Small runner for OpenAI-compatible model APIs.
 
 ## Week 1 Focus
@@ -84,6 +85,7 @@ Final notes are in:
 ```text
 week-1/submission.md
 week-2/submission.md
+week-3/submission.md
 ```
 
 ## Claude App Quick Start
@@ -95,4 +97,14 @@ sentinel-claude analyze \
   --incident week-1/incidents/INC-104.md \
   --model claude-sonnet-5 \
   --output outputs/week-2/non-streaming.json
+```
+
+## Mock Tool Loop
+
+Week 3 can run without production systems:
+
+```bash
+sentinel-tool-loop \
+  --incident week-1/incidents/INC-104.md \
+  --output outputs/week-3/tool-loop.json
 ```
